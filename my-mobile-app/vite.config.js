@@ -16,8 +16,14 @@ export default defineConfig({
         changeOrigin: true,             // Needed for virtual hosted sites
         secure: false,                  // Set to true if your backend uses HTTPS (unlikely for localhost dev)
         // rewrite: (path) => path.replace(/^\/server/, '') // Optional: If your backend route doesn't have '/server'
-                                                          // e.g., if backend route is just `/test` and frontend calls `/server/test`
+        
+        // e.g., if backend route is just `/test` and frontend calls `/server/test`
       },
+       '/api': {
+        target: 'http://localhost:5000',
+        changeOrigin: true,
+        secure: false,
+       }
       // You can add more proxy rules if you have other API prefixes
       // Example:
       // '/api': {
