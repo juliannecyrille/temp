@@ -16,24 +16,24 @@ const SearchIcon = () => (
 function App() {
   const [msg, setMsg] = useState('');
 
-  useEffect(() => {
-    // Changed to relative path
-    fetch('/server/test')
-      .then(res => {
-        if (!res.ok) {
-          throw new Error(`HTTP error! status: ${res.status}`);
-        }
-        return res.json();
-      })
-      .then(data => {
-        setMsg(data.message);
-        console.log("Backend message:", data.message);
-      })
-      .catch(error => {
-        console.error("Error fetching from backend:", error);
-        setMsg("Failed to connect to backend.");
-      });
-  }, []);
+  // useEffect(() => {
+  //   // Changed to relative path
+  //   fetch('/server/test')
+  //     .then(res => {
+  //       if (!res.ok) {
+  //         throw new Error(`HTTP error! status: ${res.status}`);
+  //       }
+  //       return res.json();
+  //     })
+  //     .then(data => {
+  //       setMsg(data.message);
+  //       console.log("Backend message:", data.message);
+  //     })
+  //     .catch(error => {
+  //       console.error("Error fetching from backend:", error);
+  //       setMsg("Failed to connect to backend.");
+  //     });
+  // }, []);
 
   const [activeForm, setActiveForm] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
@@ -1299,7 +1299,6 @@ function App() {
 
   return (
     <div className="app-container">
-      {msg && <p>Backend Status: {msg}</p>}
       <Header isFormExpanded={activeForm !== null} />
 
       <main className={`main-content ${activeForm !== null ? 'main-content-expanded' : ''}`}>
